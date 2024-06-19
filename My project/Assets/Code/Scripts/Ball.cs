@@ -65,6 +65,8 @@ public class Ball : MonoBehaviour
         {
             return;
         }
+
+        LevelManager.main.IncreaseStroke();
         Vector2 dir = (Vector2)transform.position - pos;
 
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);
@@ -106,6 +108,8 @@ public class Ball : MonoBehaviour
             Destroy(fx, 2f);
 
             //LevelComplete
+
+            LevelManager.main.LevelComplete();
         }
     }
 
