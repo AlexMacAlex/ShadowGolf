@@ -6,7 +6,7 @@ using UnityEngine;
 public class BouncePad : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float bounce = 20f;
+    private float bounce = 10f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

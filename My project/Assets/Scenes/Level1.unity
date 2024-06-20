@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &283615770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -401,6 +401,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312831057}
   m_CullTransparentMesh: 1
+--- !u!1 &397967530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397967533}
+  - component: {fileID: 397967532}
+  - component: {fileID: 397967531}
+  m_Layer: 0
+  m_Name: CameraReceive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &397967531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397967530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localHost: 193.197.225.36
+  _localPort: 3333
+--- !u!114 &397967532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397967530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e4fa304a289e8459a8d02116a49b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &397967533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397967530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 349.7237, y: 150.65532, z: -0.6401187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +570,7 @@ GameObject:
   - component: {fileID: 819273784}
   - component: {fileID: 819273785}
   - component: {fileID: 819273786}
+  - component: {fileID: 819273787}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -662,6 +727,19 @@ MonoBehaviour:
   maxPower: 10
   power: 2
   maxGoalSpeed: 4
+--- !u!114 &819273787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819273781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258a5d53e75b82547b18139130f923a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 819273784}
 --- !u!1 &855289012
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +1018,7 @@ MonoBehaviour:
   levelCompleteUI: {fileID: 1558698673}
   levelCompletedStrokeUI: {fileID: 312831059}
   gameOverUI: {fileID: 0}
+  boostPad: {fileID: 283615769}
   maxStrokes: 4
   outOfStrokes: 0
   levelCompleted: 0
@@ -3119,3 +3198,4 @@ SceneRoots:
   - {fileID: 1555444973}
   - {fileID: 1722107512}
   - {fileID: 283615772}
+  - {fileID: 397967533}
