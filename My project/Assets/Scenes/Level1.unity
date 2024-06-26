@@ -1016,7 +1016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strokeUI: {fileID: 1975704133}
   levelCompleteUI: {fileID: 1558698673}
-  levelCompletedStrokeUI: {fileID: 312831059}
+  levelUIText: {fileID: 312831059}
+  levelUIHeader: {fileID: 1886887967}
   gameOverUI: {fileID: 0}
   boostPad: {fileID: 283615769}
   maxStrokes: 4

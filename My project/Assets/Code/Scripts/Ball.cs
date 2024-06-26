@@ -33,6 +33,11 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) RestartGame();
         if (!isReady()) return;
+        if (LevelManager.main.outOfStrokes)
+        {
+            LevelManager.main.LevelFailed();
+        }
+            
 
         Vector2 inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(transform.position, inputPos);
@@ -89,7 +94,11 @@ public class Ball : MonoBehaviour
 
     private void RandomShot()
     {
-
+        LevelManager.main.IncreaseStroke();
+        if (LevelManager.main.outOfStrokes)
+        {
+            RestartGame();
+        }
         Vector2 dir = new Vector2(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f));
 
 

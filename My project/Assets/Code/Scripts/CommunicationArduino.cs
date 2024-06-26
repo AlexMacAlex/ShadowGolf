@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CommunicationArduino : MonoBehaviour
 {
@@ -51,9 +52,16 @@ public class CommunicationArduino : MonoBehaviour
     {
         if(rb.velocity.magnitude <= 0.2f)
         {
+            if (LevelManager.main.outOfStrokes)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
             LevelManager.main.IncreaseStroke();
-            Vector2 dir = new Vector2(ballData[0], ballData[1]);
-            rb.velocity = Vector2.ClampMagnitude(dir, 20f);
+            
+            Vector2 dir = new Vector2(ballData[0] / 1100, ballData[1] / 1100);
+            rb.velocity = dir;
+
         }
     }
 

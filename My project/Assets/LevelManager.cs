@@ -12,7 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI strokeUI;
     [Space(10)]
     [SerializeField] private GameObject levelCompleteUI;
-    [SerializeField] private TextMeshProUGUI levelCompletedStrokeUI;
+    [SerializeField] private TextMeshProUGUI levelUIText;
+    [SerializeField] private TextMeshProUGUI levelUIHeader;
     [Space(10)]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject boostPad;
@@ -65,8 +66,15 @@ public class LevelManager : MonoBehaviour
     {
         levelCompleted = true;
 
-        levelCompletedStrokeUI.text = strokes > 1 ? "you putted in " + strokes + " strokes" : "You got a hole in one!";
+        levelUIText.text = strokes > 1 ? "you putted in " + strokes + " strokes" : "You got a hole in one!";
 
+        levelCompleteUI.SetActive(true);
+    }
+
+    public void LevelFailed()
+    {
+        levelUIHeader.text = "LEVEL FAILED";
+        levelUIText.text = "You failed the level. Hit the ball to restart";
         levelCompleteUI.SetActive(true);
     }
 
