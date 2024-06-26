@@ -16,7 +16,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelUIHeader;
     [Space(10)]
     [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject boostPad;
+    [SerializeField] public GameObject boostPad;
+    [SerializeField] public GameObject boostPadRed;
 
     [Header("Attributes")]
     [SerializeField] private int maxStrokes;
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
     public void SpawnBoost()
     {
         boostPad.SetActive(true);
+        boostPadRed.SetActive(true);
     }
 
     public void DeleteBoost()

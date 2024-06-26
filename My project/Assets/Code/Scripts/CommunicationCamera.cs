@@ -26,23 +26,24 @@ public class CommunicationCamera : MonoBehaviour
             int tuioID = message.Values[2].IntValue;
             float tuioX = message.Values[3].FloatValue;
             float tuioY = message.Values[4].FloatValue;
-            if (tuioID == 11)
+            if (tuioID == 0)
             {
                 LevelManager.main.SpawnBoost();
+                LevelManager.main.boostPad.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
             }
-            if (tuioID == 10)
+            if (tuioID == 1)
             {
-                LevelManager.main.DeleteBoost();
+                LevelManager.main.SpawnBoost();
+                LevelManager.main.boostPadRed.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
             }
-            string result = "Received Message:";
-            result += "TUIO ID: " + message.Values[2].IntValue + "\n";
-            result += "X-Coord: " + message.Values[3].FloatValue + "\n";
-            result += "Y-Coord: " + message.Values[4].FloatValue + "\n \n \n";
-            Debug.Log(result);
+            //string result = "Received Message:";
+            //result += "TUIO ID: " + message.Values[2].IntValue + "\n";
+            //result += "X-Coord: " + message.Values[3].FloatValue + "\n";
+            //result += "Y-Coord: " + message.Values[4].FloatValue + "\n \n \n";
+            //Debug.Log(result);
         }
         catch (Exception e)
         {
-
         }
     }
 }
