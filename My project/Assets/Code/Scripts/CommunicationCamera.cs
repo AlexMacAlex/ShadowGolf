@@ -42,7 +42,7 @@ public class CommunicationCamera : MonoBehaviour
             //result += "Y-Coord: " + message.Values[4].FloatValue + "\n \n \n";
             //Debug.Log(result);
         }
-        catch (Exception e)
+        finally
         {
         }
     }

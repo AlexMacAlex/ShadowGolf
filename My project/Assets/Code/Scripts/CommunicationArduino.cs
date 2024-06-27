@@ -16,7 +16,15 @@ public class CommunicationArduino : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dataStream.Open();
+        try
+        {
+            dataStream.Open();
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Couldn't find port when opening datastream");
+        }
+
     }
 
     // Update is called once per frame
