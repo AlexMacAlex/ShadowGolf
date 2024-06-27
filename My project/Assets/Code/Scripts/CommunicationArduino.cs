@@ -59,7 +59,7 @@ public class CommunicationArduino : MonoBehaviour
 
             LevelManager.main.IncreaseStroke();
             
-            Vector2 dir = new Vector2(ballData[0] / 1100, ballData[1] / 1100);
+            Vector2 dir = new Vector2(ballData[0] / 2000, ballData[1] / 2000);
             rb.velocity = dir;
 
         }
