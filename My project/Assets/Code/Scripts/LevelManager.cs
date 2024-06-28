@@ -67,7 +67,8 @@ public class LevelManager : MonoBehaviour
     public void LevelComplete()
     {
         levelCompleted = true;
-
+        AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
+        audioManager.Play("Cheer");
         levelUIText.text = strokes > 1 ? "you putted in " + strokes + " strokes" : "You got a hole in one!";
 
         levelCompleteUI.SetActive(true);

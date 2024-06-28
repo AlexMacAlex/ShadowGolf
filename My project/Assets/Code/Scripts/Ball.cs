@@ -72,6 +72,8 @@ public class Ball : MonoBehaviour
         }
 
         LevelManager.main.IncreaseStroke();
+        AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
+        audioManager.Play("Ball_Hit");
         Vector2 dir = (Vector2)transform.position - pos;
 
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);
