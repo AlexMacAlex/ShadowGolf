@@ -38,7 +38,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))SpawnBoost();
+        if (Input.GetKeyDown(KeyCode.C)) SpawnBoost();
+        
     }
 
     public void SpawnBoost()
