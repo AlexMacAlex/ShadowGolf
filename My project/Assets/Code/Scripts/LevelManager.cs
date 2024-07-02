@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
 
     public void LevelFailed()
     {
+        levelCompleted = false;
         levelUIHeader.text = "LEVEL FAILED";
         levelUIText.text = "You failed the level. Hit the ball to restart";
         levelCompleteUI.SetActive(true);

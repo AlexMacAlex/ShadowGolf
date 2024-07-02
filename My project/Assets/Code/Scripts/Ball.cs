@@ -31,6 +31,7 @@ public class Ball : MonoBehaviour
 
     private void PlayerInput()
     {
+        if (Input.GetKeyDown(KeyCode.N)) CameraMovement.main.ResetCam();
         if (Input.GetKeyDown(KeyCode.R)) RestartGame();
         if (!isReady()) return;
         if (LevelManager.main.outOfStrokes)
@@ -48,7 +49,6 @@ public class Ball : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.A) && isDragging) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.A)) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.B)) RandomShot();
-
 
     }
     private void DragStart()
