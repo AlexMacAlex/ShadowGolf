@@ -22,6 +22,8 @@ public class CommunicationCamera : MonoBehaviour
     }
     protected void MessageReceived(OSCMessage message)
     {
+        if (LevelManager.main.strokes > 0)
+            return;
         try
         {
             Debug.Log("received a message");
@@ -30,12 +32,12 @@ public class CommunicationCamera : MonoBehaviour
             float tuioX = message.Values[3].FloatValue;
             float tuioY = message.Values[4].FloatValue;
             float rotation = message.Values[5].FloatValue;
-            if (tuioID == 0)
+            if (tuioID == 4)
             {
                 LevelManager.main.SpawnBoost();
                 LevelManager.main.boostPad.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
             }
-            if (tuioID == 1)
+            if (tuioID == 7)
             {
                 LevelManager.main.SpawnBoost();
                 LevelManager.main.boostPadRed.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);

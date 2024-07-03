@@ -34,9 +34,13 @@ public class Ball : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N)) CameraMovement.main.ResetCam();
         if (Input.GetKeyDown(KeyCode.R)) RestartGame();
         if (!isReady()) return;
+        CameraMovement.main.ResetCam();
         if (LevelManager.main.outOfStrokes)
         {
-            LevelManager.main.LevelFailed();
+            if (rb.velocity.magnitude <= 0.001f)
+            {
+                LevelManager.main.LevelFailed();
+            }
         }
             
 
@@ -72,8 +76,6 @@ public class Ball : MonoBehaviour
         }
 
         LevelManager.main.IncreaseStroke();
-        AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
-        audioManager.Play("Ball_Hit");
         Vector2 dir = (Vector2)transform.position - pos;
 
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);
@@ -114,9 +116,9 @@ public class Ball : MonoBehaviour
         if (rb.velocity.magnitude <= maxGoalSpeed){
             inHole = true;
             rb.velocity = Vector2.zero;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             GameObject fx = Instantiate(goalFX, transform.position, Quaternion.identity);
-            Destroy(fx, 2f);
+            gameObject.transform.localScale = Vector3.zero;
 
             //LevelComplete
 

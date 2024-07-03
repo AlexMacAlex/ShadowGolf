@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int maxStrokes;
 
-    private int strokes;
+    public int strokes;
     [HideInInspector] public bool outOfStrokes;
     [HideInInspector] public bool levelCompleted;
 
@@ -57,6 +57,8 @@ public class LevelManager : MonoBehaviour
 
     public void IncreaseStroke()
     {
+        AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
+        audioManager.Play("Ball_Hit");
         strokes++;
         UpdateStrokeUI();
 
@@ -71,8 +73,8 @@ public class LevelManager : MonoBehaviour
         levelCompleted = true;
         AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
         audioManager.Play("Cheer");
-        levelUIText.text = strokes > 1 ? "you putted in " + strokes + " strokes" : "You got a hole in one!";
-
+        levelUIText.text = strokes > 1 ? "you putted in " + strokes + " strokes. Hit the ball for the next level!" : "You got a hole in one! Hit the ball for the next level!";
+        CommunicationArduino.main.InvokeWaiter();
         levelCompleteUI.SetActive(true);
     }
 

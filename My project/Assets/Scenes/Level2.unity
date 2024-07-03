@@ -433,7 +433,7 @@ MonoBehaviour:
   sounds:
   - name: Ball_Hit
     clip: {fileID: 8300000, guid: 8a71f9893b3cb404480cf69ac237fe7d, type: 3}
-    volume: 0.496
+    volume: 0.209
     pitch: 1
     source: {fileID: 0}
   - name: Boing
@@ -697,7 +697,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.023584902, b: 0.8641331, a: 1}
+  m_Color: {r: 0, g: 0.21176471, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1135,7 +1135,9 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   boostPad: {fileID: 283615769}
   boostPadRed: {fileID: 1046247193}
+  ventilator: {fileID: 0}
   maxStrokes: 4
+  strokes: 0
   outOfStrokes: 0
   levelCompleted: 0
 --- !u!4 &1186227071
@@ -2559,7 +2561,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2ab629872a2e54f44bfba0692f868b99, type: 3}
   m_Resource: {fileID: 8300000, guid: 2ab629872a2e54f44bfba0692f868b99, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
