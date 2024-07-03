@@ -1000,7 +1000,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   boostPad: {fileID: 283615769}
   jumpPad: {fileID: 0}
-  maxStrokes: 6
+  maxStrokes: 8
   strokes: 0
   outOfStrokes: 0
   levelCompleted: 0
