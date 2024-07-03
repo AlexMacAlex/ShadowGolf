@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &283615770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2007,7 +2007,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2097,7 +2097,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2328,8 +2328,8 @@ Tilemap:
     m_Data: {fileID: -2275347220992172685, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: -844798421, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 5424341386242803388, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 4640281825041060752, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
   - m_RefCount: 6
@@ -2339,9 +2339,9 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -232434727, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: 5424341386242803388, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: -348213149, guid: dd96175dfdc006946acae62c270efb8f, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 60
     m_Data:
@@ -4447,7 +4447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5407333030523170453, guid: 27a12339de73cca439db33cd878042b7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5417956205952156316, guid: 27a12339de73cca439db33cd878042b7, type: 3}
       propertyPath: m_LocalScale.x
