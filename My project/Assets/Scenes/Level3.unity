@@ -999,7 +999,7 @@ MonoBehaviour:
   levelUIHeader: {fileID: 1886887967}
   gameOverUI: {fileID: 0}
   boostPad: {fileID: 283615769}
-  jumpPad: {fileID: 0}
+  jumpPad: {fileID: 2798747963886637433}
   maxStrokes: 8
   strokes: 0
   outOfStrokes: 0
@@ -4506,6 +4506,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a12339de73cca439db33cd878042b7, type: 3}
+--- !u!1 &2798747963886637433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5407333030523170453, guid: 27a12339de73cca439db33cd878042b7, type: 3}
+  m_PrefabInstance: {fileID: 2798747963886637432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
