@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private TextMeshProUGUI strokeUI;
+    [SerializeField] public GameObject ReadyToShootUI;
     [Space(10)]
     [SerializeField] private GameObject levelCompleteUI;
     [SerializeField] private TextMeshProUGUI levelUIText;
@@ -17,8 +18,7 @@ public class LevelManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] public GameObject boostPad;
-    [SerializeField] public GameObject boostPadRed;
-    [SerializeField] public GameObject ventilator;
+    [SerializeField] public GameObject jumpPad;
 
     [Header("Attributes")]
     [SerializeField] private int maxStrokes;
@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     public int strokes;
     [HideInInspector] public bool outOfStrokes;
     [HideInInspector] public bool levelCompleted;
+    [HideInInspector] private bool failSoundPlayed = false;
 
     private void Awake()
     {
@@ -46,8 +47,13 @@ public class LevelManager : MonoBehaviour
     public void SpawnBoost()
     {
         boostPad.SetActive(true);
-        boostPadRed.SetActive(true);
     }
+
+    public void SpawnJumpPad()
+    {
+        jumpPad.SetActive(true);
+    }
+
 
     public void DeleteBoost()
     {
@@ -80,10 +86,18 @@ public class LevelManager : MonoBehaviour
 
     public void LevelFailed()
     {
+        Debug.Log(levelCompleted);
+        if (!failSoundPlayed)
+        {
+            AudioManager audioManager = (AudioManager)Object.FindFirstObjectByType(typeof(AudioManager));
+            audioManager.Play("Level_Fail");
+            failSoundPlayed = true;
+        }
         levelCompleted = false;
         levelUIHeader.text = "LEVEL FAILED";
         levelUIText.text = "You failed the level. Hit the ball to restart";
         levelCompleteUI.SetActive(true);
+
     }
 
 

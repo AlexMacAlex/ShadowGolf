@@ -35,20 +35,20 @@ public class CommunicationCamera : MonoBehaviour
             if (tuioID == 4)
             {
                 LevelManager.main.SpawnBoost();
-                LevelManager.main.boostPad.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
+                LevelManager.main.boostPad.transform.position = new Vector3((1 - tuioX) * 12, -tuioY * 8, 0);
             }
             if (tuioID == 7)
             {
-                LevelManager.main.SpawnBoost();
-                LevelManager.main.boostPadRed.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
+                LevelManager.main.SpawnJumpPad();
+                LevelManager.main.jumpPad.transform.position = new Vector3((1 - tuioX) * 12, -tuioY * 8, 0);
             }
-            if (tuioID == 3)
-            {
-                float rot360 = Map(rotation, 0, 6.3f, 0, 360);
-                var rot = new Vector3(0, 0, rot360);
-                Debug.Log("Rotation:" + rot360);
-                LevelManager.main.ventilator.transform.localRotation = Quaternion.Euler(rot);
-            }
+            //if (tuioID == 3)
+            //{
+            //    float rot360 = Map(rotation, 0, 6.3f, 0, 360);
+            //    var rot = new Vector3(0, 0, rot360);
+            //    Debug.Log("Rotation:" + rot360);
+            //    LevelManager.main.ventilator.transform.localRotation = Quaternion.Euler(rot);
+            //}
 
         }
         catch (Exception e)

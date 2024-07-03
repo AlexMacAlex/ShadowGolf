@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class CommunicationArduino : MonoBehaviour
@@ -50,7 +51,7 @@ public class CommunicationArduino : MonoBehaviour
         ableToShoot = false;
         float timeElapsed = 0;
 
-        while (timeElapsed < 3f)
+        while (timeElapsed < 2.2f)
         {
             timeElapsed += Time.deltaTime;
             yield return null;
@@ -71,6 +72,15 @@ public class CommunicationArduino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RawImage image = LevelManager.main.ReadyToShootUI.GetComponent<RawImage>();
+        if (rb.velocity.magnitude <= 0.2f && ableToShoot)
+        {
+            image.color = Color.green;
+        }
+        else
+        {
+            image.color = Color.red;
+        }
         if (dataStream.IsOpen && dataStream.BytesToRead > 0)
         {
             receivedString = dataStream.ReadLine();

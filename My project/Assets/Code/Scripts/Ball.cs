@@ -26,6 +26,8 @@ public class Ball : MonoBehaviour
 
     private bool isReady()
     {
+        if(LevelManager.main.outOfStrokes)
+            return false;
         return rb.velocity.magnitude <= 0.2f;
     }
 
@@ -33,15 +35,16 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N)) CameraMovement.main.ResetCam();
         if (Input.GetKeyDown(KeyCode.R)) RestartGame();
-        if (!isReady()) return;
-        CameraMovement.main.ResetCam();
-        if (LevelManager.main.outOfStrokes)
+        if (LevelManager.main.outOfStrokes && !inHole)
         {
             if (rb.velocity.magnitude <= 0.001f)
             {
                 LevelManager.main.LevelFailed();
             }
         }
+        if (!isReady()) return;
+        CameraMovement.main.ResetCam();
+
             
 
         Vector2 inputPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,6 +56,8 @@ public class Ball : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.A) && isDragging) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.A)) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.B)) RandomShot();
+        if (Input.GetKeyDown(KeyCode.X)) StateManager.main.RestartFromLevel1();
+        if (Input.GetKeyDown(KeyCode.C)) StateManager.main.LoadNextLevel();
 
     }
     private void DragStart()

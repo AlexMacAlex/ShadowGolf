@@ -39,10 +39,21 @@ public class StateManager : MonoBehaviour
 
             case "Level2":
                 //SceneManager.UnloadSceneAsync(currentLevel);
+                LoadLevel("Level3");
+                break;
+
+            case "Level3":
+                //SceneManager.UnloadSceneAsync(currentLevel);
                 LoadLevel("Level1");
                 break;
 
         }
+    }
+
+    public void RestartFromLevel1()
+    {
+        CommunicationArduino.main.CloseDataStream();
+        LoadLevel("Level1");
     }
 
     public void ReloadLevel()
