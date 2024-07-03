@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] public GameObject boostPad;
     [SerializeField] public GameObject boostPadRed;
+    [SerializeField] public GameObject ventilator;
 
     [Header("Attributes")]
     [SerializeField] private int maxStrokes;

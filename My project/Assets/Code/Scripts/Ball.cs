@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float maxPower = 10f;
     [SerializeField] private float power = 2f;
-    [SerializeField] private float maxGoalSpeed = 4f;
+    [SerializeField] private float maxGoalSpeed = 8f;
 
     private bool isDragging;
     private bool inHole;
