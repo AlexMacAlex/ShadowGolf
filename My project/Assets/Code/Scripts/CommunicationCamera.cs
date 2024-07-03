@@ -22,16 +22,6 @@ public class CommunicationCamera : MonoBehaviour
     }
     protected void MessageReceived(OSCMessage message)
     {
-        Debug.Log("Message" + message);
-        //string result = "received message:";
-        //result += "tuio id: " + message.Values[2].IntValue + "\n";
-        //result += "x-coord: " + message.Values[3].FloatValue + "\n";
-        //result += "y-coord: " + message.Values[4].FloatValue + "\n \n \n";
-        //Debug.Log(result);
-        if (message.Values[1].IntValue == -1)
-        {
-            return;
-        }
         try
         {
             Debug.Log("received a message");
@@ -50,21 +40,23 @@ public class CommunicationCamera : MonoBehaviour
                 LevelManager.main.SpawnBoost();
                 LevelManager.main.boostPadRed.transform.position = new Vector3((1 - tuioX) * 10, -tuioY * 6, 0);
             }
-            //if (tuioID == 3)
-            //{
-            //    float rot360 = Map(rotation, 0, 6.3f, 0, 360);
-            //    var rot = new Vector3(0, 0, rot360);
-            //    Debug.Log("Rotation:" + rot360);
-            //    LevelManager.main.ventilator.transform.localRotation = Quaternion.Euler(rot);
-            //}
+            if (tuioID == 3)
+            {
+                float rot360 = Map(rotation, 0, 6.3f, 0, 360);
+                var rot = new Vector3(0, 0, rot360);
+                Debug.Log("Rotation:" + rot360);
+                LevelManager.main.ventilator.transform.localRotation = Quaternion.Euler(rot);
+            }
 
         }
-        finally
+        catch (Exception e)
         {
+
         }
+        
     }
-    //static float Map(float x, float in_min, float in_max, float out_min, float out_max)
-    //{
-    //    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-    //}
+    static float Map(float x, float in_min, float in_max, float out_min, float out_max)
+    {
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
 }
