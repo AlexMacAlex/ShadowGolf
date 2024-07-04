@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float maxPower = 10f;
     [SerializeField] private float power = 2f;
-    [SerializeField] private float maxGoalSpeed = 8f;
+    [SerializeField] private float maxGoalSpeed = 20f;
 
     private bool isDragging;
     private bool inHole;
@@ -56,8 +56,8 @@ public class Ball : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.A) && isDragging) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.A)) DragRelease2(inputPos);
         if (Input.GetKeyDown(KeyCode.B)) RandomShot();
-        if (Input.GetKeyDown(KeyCode.X)) StateManager.main.RestartFromLevel1();
-        if (Input.GetKeyDown(KeyCode.C)) StateManager.main.LoadNextLevel();
+        if (Input.GetKeyDown(KeyCode.Q)) StateManager.main.RestartFromLevel1();
+        if (Input.GetKeyDown(KeyCode.W)) StateManager.main.LoadNextLevel();
 
     }
     private void DragStart()

@@ -117,6 +117,7 @@ public class CommunicationArduino : MonoBehaviour
             {
                 Debug.Log("haus");
                 StateManager.main.LoadNextLevel();
+                return;
             }
 
             if (LevelManager.main.outOfStrokes && rb.velocity.magnitude <= 0.001f)
