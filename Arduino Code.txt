@@ -1,0 +1,127 @@
+#include<Wire.h>
+const int MPU_addr=0x68;
+long x, y, z;
+int count;
+long valueX, valueY, valueZ;
+int rounds = 100;
+int threshhold = 300;
+int nThreshhold = -300;
+double dCorrectionValueX, dCorrectionValueY, dCorrectionValueZ;
+bool printed, isHit, afterX = false;
+void setup(){
+  Wire.begin();
+  Wire.beginTransmission(MPU_addr);
+  Wire.write(0x6B);
+  Wire.write(0);
+  Wire.endTransmission(true);
+  Serial.println("start");
+  Serial.begin(9600);
+}
+void loop(){
+  Wire.beginTransmission(MPU_addr);
+  Wire.write(0x43);
+  Wire.endTransmission(false);
+  Wire.requestFrom(MPU_addr,14,true);
+  
+  if (count < rounds) {
+    addValueToX(Wire.read()<<8|Wire.read());
+    addValueToY(Wire.read()<<8|Wire.read());
+    addValueToZ(Wire.read()<<8|Wire.read());
+    count++;
+    Serial.println(count);
+    delay(100);
+  } else if(!printed) {
+    dCorrectionValueX = valueX / rounds;
+    dCorrectionValueY = valueY / rounds;
+    dCorrectionValueZ = valueZ / rounds;
+    printed = true;
+    
+    Serial.println("Kalibriert!");
+    delay(1000);
+  } else {
+    x = Wire.read()<<8|Wire.read();
+    x -= dCorrectionValueX;
+    
+    y = Wire.read()<<8|Wire.read();
+    y -= dCorrectionValueY;
+
+    z = Wire.read()<<8|Wire.read();
+    z -= dCorrectionValueZ;
+
+    afterX = false;
+    if (x > 0) {
+      if(x > threshhold){
+        printValue(x);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    } else {
+      if(x < nThreshhold){
+        printValue(x);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    }
+    
+    afterX = true;
+
+    if (y > 0) {
+      if(y > threshhold){
+        printValue(y);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    } else {
+      if(y < nThreshhold){
+        printValue(y);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    }
+
+    if (z > 0) {
+      if(z > threshhold){
+        printValue(z);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    } else {
+      if(z < nThreshhold){
+        printValue(z);
+        isHit = true;
+      } else {
+        printValue(0.0);
+      }
+    }
+
+
+    Serial.println(' ');
+    if (isHit) {
+      afterX = false;
+      isHit = false;
+    }
+    delay(30);
+  }
+}
+
+void addValueToX(int value) {
+  valueX += value;
+}
+void addValueToY(int value) {
+  valueY += value;
+}
+void addValueToZ(int value) {
+  valueZ += value;
+}
+
+void printValue(long value) {
+  if (afterX) {
+    Serial.print(",");
+  }
+   Serial.print(value);
+}
