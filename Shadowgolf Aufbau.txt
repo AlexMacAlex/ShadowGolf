@@ -1,0 +1,13 @@
+Shadowgolf Aufbau
+- Laptop mit heruntergeladenem Projekt
+- Beamer anschließen 
+- Kinect anschließen 
+- Golfball anschließen: Arduino an PC anschließen
+- Arduino Skript ausführen ("Arduino Code.txt" in die Arduino IDE pasten)
+- Golfball platzieren: hinteres Raumende
+- Ball in X-Richtung ausrichten (Markierung)
+- Bildschirm splitten
+- Spielfeld auf den Boden skalieren (Beamer)
+- Kinect-Raster über Spielfeld legen (in der gestarteten reacTIVision Software)
+- ggf. Tuio-Marker platzieren (Aktuell verwenden wir nur die TuioIDs 4 und 7, 4 ist das BoostPad, 7 das JumpPad
+- spielen!
